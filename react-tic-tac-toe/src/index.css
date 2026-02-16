@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: "Google Sans", sans-serif;
+  user-select: none;
+}
+li {
+  list-style: none;
+}
+p,
+h1,
+h2,
+h3 {
+  color: #ff2e63;
+}
+button {
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+body {
+  background: radial-gradient(circle at top, #1a1a2e, #0f0f1b);
+}
+.players {
+  width: min(90%, 50rem);
+  margin: 2rem auto 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: rgba(225, 225, 225, 0.2);
+  border-radius: 0.6rem;
+}
+.player {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.player-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  gap: 0.7rem;
+  border-radius: 0.6rem;
+}
+.player-info p {
+  padding: 0.5rem;
+  width: 10rem;
+  height: 3.5rem;
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.player-info input {
+  width: 10rem;
+  height: 3.5rem;
+  background-color: rgba(225, 225, 225, 0.3);
+  border-radius: 0.3rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ff2e63;
+  padding: 0.5rem;
+  animation: softBlink 1.2s infinite;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.player-info h2 {
+  font-size: 2rem;
+  color: #fff;
+}
+.player button {
+  margin: 1rem auto 0;
+  width: 70%;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  border-radius: 0.3rem;
+}
+.player button:hover {
+  background-color: #cfcfcf;
+}
+.active {
+  animation: activeGlow 1.5s ease-in-out infinite;
+}
+
+#game-board {
+  width: min(90%, 50rem);
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#game-board ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#game-board button {
+  width: clamp(70px, 20vw, 10rem);
+  height: clamp(70px, 20vw, 10rem);
+  font-size: clamp(2rem, 8vw, 6rem);
+  border-radius: 1rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(145deg, #ff2e63, #ff4775);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+#game-board button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+.main-game {
+  position: relative;
+  text-align: center;
+  margin: auto;
+}
+.game-over {
+  position: absolute;
+  padding: 2rem;
+  width: min(90%, 40rem);
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%) scale(0.7);
+  background: linear-gradient(135deg, #1f1f2e, #2b2b40);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 1rem;
+  animation: gameOverAppear 0.4s ease forwards;
+}
+.game-over h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+.game-over p {
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
+  font-weight: 500;
+}
+.game-over button {
+  padding: 0.7rem 3rem;
+  border-radius: 0.4rem;
+  font-size: 1.5rem;
+  background-color: #cfcfcf;
+}
+.game-over button:hover {
+  outline: none;
+  background-color: #ff4775;
+  box-shadow: 0 0 10px #ff2e63;
+}
+
+/* animations */
+@keyframes softBlink {
+  0% {
+    box-shadow: 0 0 0px rgba(225, 225, 225, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(225, 225, 225, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0px rgba(225, 225, 225, 0.45);
+  }
+}
+@keyframes activeGlow {
+  0% {
+    box-shadow: 0 0 0px #ff2e63;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff2e63;
+  }
+  100% {
+    box-shadow: 0 0 0px #ff2e63;
+  }
+}
+@keyframes gameOverAppear {
+  0% {
+    transform: translateX(-50%) scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .players {
+    flex-direction: column;
+  }
+
+  .player-info p,
+  .player-info input {
+    width: 8rem;
+    font-size: 1.5rem;
+  }
+
+  .player button {
+    width: 100%;
+  }
+
+  #game-board ol {
+    gap: 0.6rem;
+  }
+}
